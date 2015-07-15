@@ -1,0 +1,23 @@
+#Vi like navigation of the command line
+set editing-mode vi
+
+#One tab press auto completes and shows available options
+set show-all-if-ambiguous on
+
+#Case insensitive completion
+set completion-ignore-case on
+
+#Treat underscores and hyphens the same way for completion purposes
+set completion-map-case on
+
+#Don't display control characters like ^C if they are typed
+set echo-control-characters off
+
+#Don't paginate possible completions
+set page-completions off
+
+#Show me up to 1,000 completion items
+set completion-query-items 1000
+
+#Don't re-complete already completed text in the middle of the word
+set skip-completed-text on
