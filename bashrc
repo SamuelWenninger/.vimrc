@@ -15,6 +15,9 @@ alias c=clear
 #Human readable display free disk space
 alias df='df -h'
 
+#Make sure that Vim is always used rather than Vi
+alias vi='vim'
+
 #Vi like navigation of the command line
 set -o vi
 
