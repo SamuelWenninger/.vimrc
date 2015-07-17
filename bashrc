@@ -1,7 +1,7 @@
 #Set what the command prompt looks like
 export PS1='\w: '
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:\
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:\
 /usr/texbin:/Users/SamuelWenninger/bash-scripts
 #Change the default behavior of 'ls'. Standard 'ls' can be used by doing '\ls'
 #'-F': distinguishes between directories, files, executables, etc.
