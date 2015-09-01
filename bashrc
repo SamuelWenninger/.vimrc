@@ -1,23 +1,9 @@
 #Set what the command prompt looks like
 export PS1='\w: '
 
+#Append locations to the path
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:\
 /usr/texbin:/Users/SamuelWenninger/bash-scripts
-
-#Change the default behavior of 'ls'. Standard 'ls' can be used by doing '\ls'
-#'-F': distinguishes between directories, files, executables, etc.
-#'-A': show all hidden files except '..' and '.'
-#'-h': shows files sizes in human readable format when '-l' is used
-alias ls='ls -FAh'
-
-#Shorter clear command call
-alias c=clear
-
-#Human readable display free disk space
-alias df='df -h'
-
-#Make sure that Vim is always used rather than Vi
-alias vi='vim'
 
 #Vi like navigation of the command line
 set -o vi
@@ -51,3 +37,27 @@ export HISTTIMEFORMAT='%F %T '
 
 #Immediately record history to .bash_history, rather than after a session ends
 export PROMT_COMMAND='history -a'
+
+#Change the default behavior of 'ls'. Standard 'ls' can be used by doing '\ls'
+#'-F': distinguishes between directories, files, executables, etc.
+#'-A': show all hidden files except '..' and '.'
+#'-h': shows files sizes in human readable format when '-l' is used
+alias ls='ls -FAh'
+
+#Shorter clear command call
+alias c=clear
+
+#Human readable display free disk space
+alias df='df -h'
+
+#Make sure that Vim is always used rather than Vi
+alias vi='vim'
+
+#Copy is recursive, preserves ownership/dates/etc, interactive, and verbose
+alias cp='cp -rpiv'
+
+#Remove is interactive and verbose to prevent deleting things unintentionally
+alias rm='rm -iv'
+
+#Move is interactive and verbose to prevent unintentional overwrites
+alias mv='mv -iv'
