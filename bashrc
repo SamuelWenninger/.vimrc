@@ -1,5 +1,7 @@
 #Set what the command prompt looks like
-export PS1='\w: '
+color_bright_red='\[\e[1;31m\]'
+color_reset='\[\e[0m\]'
+export PS1=${color_bright_red}'\w: '${color_reset}
 
 #Append locations to the path
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:\
