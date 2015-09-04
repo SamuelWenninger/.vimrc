@@ -50,8 +50,8 @@ iab osheading
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: David Goldschmidt
 \<CR>Course: Operating Systems
-\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
 \<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
@@ -62,8 +62,8 @@ iab oscprogramheading
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: David Goldschmidt
 \<CR>Course: Operating Systems
-\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
 \<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
@@ -74,8 +74,8 @@ iab plheading
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: Carlos Varela
 \<CR>Course: Programming Languages
-\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
 \<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
@@ -86,8 +86,8 @@ iab cansheading
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: Bulent Yener
 \<CR>Course: Cryptography and Network Security 1
-\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
 \<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
@@ -98,8 +98,8 @@ iab sdadheading
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: John Sturman
 \<CR>Course: Software Design and Documentation
-\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
 \<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
@@ -110,8 +110,8 @@ iab scheading
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: Merrill Whitburn
 \<CR>Course: Speech Communication
-\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
 \<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
@@ -122,7 +122,7 @@ iab mlaheading
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: 
 \<CR>Course: 
-\<CR>Date: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Date: <C-R>=strftime("%m-%d-%Y")<CR>
 \<CR>****************************************************************************
 \****<CR>
 
@@ -131,8 +131,8 @@ iab journalheading
 \<CR>Name: Samuel Wenninger
 \<CR>Highlight:
 \<CR>Tags: 
-\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
 \<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>****************************************************************************
 \****<CR>
@@ -156,8 +156,8 @@ iab generalheading
 \********************************************************************************
 \<CR>Name: Samuel Wenninger
 \<CR>Description: 
-\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
 \<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>****************************************************************************
 \****<CR>
@@ -185,5 +185,5 @@ fun! LastMod()
         let l = line("$")
     endif
     exe "1," . l . "g/Last Modified: /s/Last Modified: .*/Last Modified: " .
-    \ strftime("%m %d %Y %T")
+    \ strftime("%m-%d-%Y %T")
 endfun
