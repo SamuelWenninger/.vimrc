@@ -48,19 +48,35 @@ nnoremap Y y$
 iab osheading 
 \********************************************************************************
 \<CR>Name: Samuel Wenninger
-\<CR>Professor: David Goldschmidt 
-\<CR>Course: Operating Systems 
-\<CR>Date: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Professor: David Goldschmidt
+\<CR>Course: Operating Systems
+\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
 \****<CR>
+
+iab oscprogramheading 
+\/*******************************************************************************
+\<CR>Name: Samuel Wenninger
+\<CR>Professor: David Goldschmidt
+\<CR>Course: Operating Systems
+\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR>
+\<CR>Topic: 
+\<CR>****************************************************************************
+\***/<CR>
 
 iab plheading 
 \********************************************************************************
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: Carlos Varela
 \<CR>Course: Programming Languages
-\<CR>Date: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
 \****<CR>
@@ -70,7 +86,9 @@ iab cansheading
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: Bulent Yener
 \<CR>Course: Cryptography and Network Security 1
-\<CR>Date: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
 \****<CR>
@@ -78,9 +96,11 @@ iab cansheading
 iab sdadheading 
 \********************************************************************************
 \<CR>Name: Samuel Wenninger
-\<CR>Professor: John Sturman 
+\<CR>Professor: John Sturman
 \<CR>Course: Software Design and Documentation
-\<CR>Date: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
 \****<CR>
@@ -88,9 +108,11 @@ iab sdadheading
 iab scheading 
 \********************************************************************************
 \<CR>Name: Samuel Wenninger
-\<CR>Professor: Merrill Whitburn 
+\<CR>Professor: Merrill Whitburn
 \<CR>Course: Speech Communication
-\<CR>Date: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>Topic: 
 \<CR>****************************************************************************
 \****<CR>
@@ -109,7 +131,9 @@ iab journalheading
 \<CR>Name: Samuel Wenninger
 \<CR>Highlight:
 \<CR>Tags: 
-\<CR>Date: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>****************************************************************************
 \****<CR>
 \<CR>****************************************************************************
@@ -132,14 +156,17 @@ iab generalheading
 \********************************************************************************
 \<CR>Name: Samuel Wenninger
 \<CR>Description: 
-\<CR>Date: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Date Created: <C-R>=strftime("%m/%d/%Y")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m/%d/%Y %T")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR>
 \<CR>****************************************************************************
 \****<CR>
 
 iab stardiv 
 \********************************************************************************
 
-"Only perform this section only if Vi(m) has been compiled with support for 
+
+"Only perform this section only if Vi(m) has been compiled with support for
 "autocommands
 if has("autocmd")
     filetype on
@@ -148,4 +175,15 @@ if has("autocmd")
     "autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4
     "autocmd FileType html setlocal expandtab shiftwidth=4 softtabstop=4
     autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd! BufWritePre,FileWritePre * ks|call LastMod()|'s
 endif
+
+fun! LastMod()
+    if line("$") > 20
+        let l = 20
+    else
+        let l = line("$")
+    endif
+    exe "1," . l . "g/Last Modified: /s/Last Modified: .*/Last Modified: " .
+    \ strftime("%m %d %Y %T")
+endfun
