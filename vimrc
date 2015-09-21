@@ -31,6 +31,8 @@ set number
 syntax on
 "Set right margin at 80 (up to line)
 set colorcolumn=81
+"Set text wraping at 80
+set tw=80
 "Automatically add matching curly brace
 inoremap {<CR> {<CR>}<C-o>O
 "Enable auto indentation
@@ -43,6 +45,8 @@ set splitright
 set wildmode=longest:list
 "Make 'Y' behave similarly to 'D' and 'C'
 nnoremap Y y$
+"Easy turning on of spell check
+map <leader>s :setlocal spell! spelllang=en_us<CR>
 
 "Abbreviations
 iab osheading 
@@ -81,7 +85,7 @@ iab plheading
 \<CR>****************************************************************************
 \****<CR>
 
-iab cansheading 
+iab cans1heading 
 \********************************************************************************
 \<CR>Name: Samuel Wenninger
 \<CR>Professor: Bulent Yener
@@ -164,6 +168,60 @@ iab generalheading
 
 iab stardiv 
 \********************************************************************************
+
+"Math abbreviations
+iab \uparrow\    ↑
+iab \downarrow\  ↓
+iab \leftarrow\  ←
+iab \rightarrow\ →
+iab \equiv\      ≡
+iab \neq\        ≠
+iab \Alpha\      Α
+iab \alpha\      ⍺
+iab \Epsilon\    Ε
+iab \epsilon\    ε
+iab \Theta\      Θ
+iab \theta\      θ
+iab \Lambda\     Λ
+iab \lambda\     λ
+iab \Pi\         Π
+iab \pi\         π
+iab \Sigma\      Σ
+iab \sigma\      σ
+iab \Phi\        Φ
+iab \phi\        φ
+iab \Omega\      Ω
+iab \omega\      ω
+iab \Beta\       Β
+iab \beta\       β
+iab \Mu\         Μ
+iab \mu\         μ
+iab \Gamma\      Γ
+iab \gamma\      γ
+iab \Zeta\       Ζ
+iab \zeta\       ζ
+iab \Iota\       Ι
+iab \iota\       ι
+iab \Nu\         Ν
+iab \nu\         ν
+iab \Rho\        Ρ
+iab \rho\        ρ
+iab \Tau\        Τ
+iab \tau\        τ
+iab \Chi\        Χ
+iab \chi\        χ
+iab \Delta\      Δ
+iab \delta\      δ
+iab \Eta\        Η
+iab \eta\        η
+iab \Kappa\      Κ
+iab \kappa\      κ
+iab \Xi\         Ξ
+iab \xi\         ξ
+iab \Upsilon\    Υ
+iab \upsilon\    υ
+iab \Psi\        Ψ
+iab \psi\        ψ
 
 
 "Only perform this section only if Vi(m) has been compiled with support for
