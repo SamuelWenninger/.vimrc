@@ -47,6 +47,8 @@ set autoindent
 set expandtab shiftwidth=4 softtabstop=4
 "Make new windows appear on the right instead of the left
 set splitright
+"Make backspace behave as expected
+set backspace=2
 "One press tab autocompletes and shows all available options
 set wildmode=longest:list
 "Automatically add matching curly brace
@@ -60,6 +62,10 @@ map <leader>s :setlocal spell! spelllang=en_us<CR>
 nnoremap i :nohl<CR>i
 "For taking notes
 nmap <leader>f ^r<Space>
+"Allow freedom to move the cursor anywhere, regardless of if there is a
+"character there or not
+nmap <leader>von :set ve=all<CR>
+nmap <leader>voff :set ve=<CR>
 
 "Abbreviations
 iab osheading 
@@ -201,6 +207,12 @@ imap <leader>forall     ∀
 imap <leader>in         ∈
 imap <leader>exists     ∃
 imap <leader>times      ×
+imap <leader>bhor       ═
+imap <leader>bver       ║
+imap <leader>btl        ╔
+imap <leader>btr        ╗
+imap <leader>bbl        ╚
+imap <leader>bbr        ╝
 "Greek letters
 imap <leader>Alpha      Α
 imap <leader>alpha      ⍺
