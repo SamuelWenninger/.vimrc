@@ -19,6 +19,11 @@
 "  ██╗╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "  ╚═╝ ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 
+"Call pathogen (package manager)
+execute pathogen#infect()
+filetype plugin on
+"Make blank files defaultly LaTeX
+let g:tex_flavor='latex'
 "Set color scheme
 colorscheme slate
 "Enable line & column number in status bar
@@ -60,25 +65,27 @@ map <leader>s :setlocal spell! spelllang=en_us<CR>
 "Make entering insert mode from normal mode turn off search highlighting until
 "the next search
 nnoremap i :nohl<CR>i
-"For taking notes
-nmap <leader>f ^r<Space>
+"Replace the first item in a line with a space
+nmap <silent><leader>f :normal! mm^r<Space>`m<CR>
 "Allow freedom to move the cursor anywhere, regardless of if there is a
 "character there or not
 nmap <leader>von :set ve=all<CR>
 nmap <leader>voff :set ve=<CR>
+"Start LaTeX live preview
+"nmap <leader>L :LLPStartPreview<CR>
+nmap <leader>L :! pdflatex *.tex<CR>
+command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
+nmap <leader>P :Silent pandoc % -o %:t:r.pdf -V geometry:margin=1in &<CR>
 
 "Abbreviations
 iab osheading 
-\********************************************************************************
-\<CR>Name: Samuel Wenninger
-\<CR>Professor: David Goldschmidt
-\<CR>Course: Operating Systems
-\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
-\<CR>Filename: <C-R>=expand("%:t")<CR>
-\<CR>Topic: 
-\<CR>****************************************************************************
-\****<CR>
+\Name: Samuel Wenninger  
+\<CR>Professor: David Goldschmidt  
+\<CR>Course: Operating Systems  
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y  ")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T  ")<CR>
+\<CR>Filename: <C-R>=expand("%:t  ")<CR>
+\<CR>Topic:  <CR>
 
 iab oscprogramheading 
 \/*******************************************************************************
@@ -93,61 +100,47 @@ iab oscprogramheading
 \***/<CR>
 
 iab plheading 
-\********************************************************************************
-\<CR>Name: Samuel Wenninger
-\<CR>Professor: Carlos Varela
-\<CR>Course: Programming Languages
-\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
-\<CR>Filename: <C-R>=expand("%:t")<CR>
-\<CR>Topic: 
-\<CR>****************************************************************************
-\****<CR>
+\Name: Samuel Wenninger  
+\<CR>Professor: Carlos Varela  
+\<CR>Course: Programming Languages  
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y  ")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T  ")<CR>
+\<CR>Filename: <C-R>=expand("%:t  ")<CR>
+\<CR>Topic:  <CR>
 
 iab cans1heading 
-\********************************************************************************
-\<CR>Name: Samuel Wenninger
-\<CR>Professor: Bulent Yener
-\<CR>Course: Cryptography and Network Security 1
-\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
-\<CR>Filename: <C-R>=expand("%:t")<CR>
-\<CR>Topic: 
-\<CR>****************************************************************************
-\****<CR>
+\Name: Samuel Wenninger  
+\<CR>Professor: Bulent Yener  
+\<CR>Course: Cryptography and Network Security 1  
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y  ")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T  ")<CR>
+\<CR>Filename: <C-R>=expand("%:t  ")<CR>
+\<CR>Topic:  <CR>
 
 iab sdadheading 
-\********************************************************************************
-\<CR>Name: Samuel Wenninger
-\<CR>Professor: John Sturman
-\<CR>Course: Software Design and Documentation
-\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
-\<CR>Filename: <C-R>=expand("%:t")<CR>
-\<CR>Topic: 
-\<CR>****************************************************************************
-\****<CR>
+\Name: Samuel Wenninger  
+\<CR>Professor: John Sturman  
+\<CR>Course: Software Design and Documentation  
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y  ")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T  ")<CR>
+\<CR>Filename: <C-R>=expand("%:t  ")<CR>
+\<CR>Topic:  <CR>
 
 iab scheading 
-\********************************************************************************
-\<CR>Name: Samuel Wenninger
-\<CR>Professor: Merrill Whitburn
-\<CR>Course: Speech Communication
-\<CR>Date Created: <C-R>=strftime("%m-%d-%Y")<CR>
-\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T")<CR>
-\<CR>Filename: <C-R>=expand("%:t")<CR>
-\<CR>Topic: 
-\<CR>****************************************************************************
-\****<CR>
+\Name: Samuel Wenninger  
+\<CR>Professor: Merrill Whitburn  
+\<CR>Course: Speech Communication  
+\<CR>Date Created: <C-R>=strftime("%m-%d-%Y  ")<CR>
+\<CR>Last Modified: <C-R>=strftime("%m-%d-%Y %T  ")<CR>
+\<CR>Filename: <C-R>=expand("%:t")<CR><CR>
+\\
+\<CR>Topic:  <CR>
 
 iab mlaheading 
-\********************************************************************************
-\<CR>Name: Samuel Wenninger
-\<CR>Professor: 
-\<CR>Course: 
-\<CR>Date: <C-R>=strftime("%m-%d-%Y")<CR>
-\<CR>****************************************************************************
-\****<CR>
+\Name: Samuel Wenninger  
+\<CR>Professor:   
+\<CR>Course:   
+\<CR>Date: <C-R>=strftime("%m-%d-%Y  ")<CR>
 
 iab journalheading 
 \********************************************************************************
@@ -276,7 +269,15 @@ if has("autocmd")
     "autocmd FileType html setlocal expandtab shiftwidth=4 softtabstop=4
     autocmd bufwritepost .vimrc source $MYVIMRC
     autocmd! BufWritePre,FileWritePre * ks|call LastMod()|'s
+    "Live LaTeX preview
+    autocmd Filetype tex setl updatetime=1
+    "autocmd BufNew,BufNewFile,BufRead *.md,*markdown :setlocal expandtab shiftwidth=3 softtabstop=3
 endif
+
+"Live preview application for LaTeX
+let g:livepreview_previewer = 'open -a Preview'
+"Vim-LaTeX view file
+let g:Tex_ViewRule_pdf = 'open -a Preview'
 
 fun! LastMod()
     if line("$") > 20
@@ -285,5 +286,5 @@ fun! LastMod()
         let l = line("$")
     endif
     exe "1," . l . "g/Last Modified: /s/Last Modified: .*/Last Modified: " .
-    \ strftime("%m-%d-%Y %T")
+    \ strftime("%m-%d-%Y %T  ")
 endfun
