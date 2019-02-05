@@ -198,8 +198,8 @@ __git_complete grb _git_rebase
 # Add all edited files to the commit
 alias gaa='git add --all'
 
-# Amend the previous commit without changing the commit message
-alias gcma='git commit --amend --no-edit'
+# Amend the previous commit without changing the commit message or verifying it with precommit hooks
+alias gcma='git commit --amend --no-verify --no-edit'
 
 alias gaacpf='gaa && git commit -m "fix(stuff): fixed stuff" && gpf'
 
