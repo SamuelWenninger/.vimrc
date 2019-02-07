@@ -20,7 +20,7 @@
 "  ╚═╝ ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
 
 "Call pathogen (package manager)
-execute pathogen#infect()
+"execute pathogen#infect()
 filetype plugin on
 "Make blank files defaultly LaTeX
 let g:tex_flavor='latex'

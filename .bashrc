@@ -4,7 +4,7 @@
 
 # Ensure that tmux is installed on the system, and run it at the start of bash
 if command -v tmux>/dev/null; then
-    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux attach-session
 fi
 
 ################################################################################
@@ -109,9 +109,10 @@ stty -ixon
 
 # Change the default behavior of 'ls'. Standard 'ls' can be used by doing '\ls'
 # '-F': distinguishes between directories, files, executables, etc.
+# '-G': colorized output
 # '-A': show all hidden files except '..' and '.'
 # '-h': shows files sizes in human readable format when '-l' is used
-alias ls='ls -FAh --color'
+alias ls='ls -GFAh'
 
 # Shorter clear command call
 alias c=clear
