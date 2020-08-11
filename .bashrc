@@ -136,7 +136,10 @@ alias mv='mv -iv'
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 
+# File find
 alias ffind='find . -type f -name'
+
+# Find more stuff in more places by ignoring case and searching recursively
 alias grep='grep -iInR --color'
 
 ################################################################################
@@ -144,16 +147,10 @@ alias grep='grep -iInR --color'
 ################################################################################
 
 # Git update master
-alias gum='git checkout master && git fetch upstream && git merge upstream/master --ff-only && git checkout -'
+alias gum='git checkout master && git pull && git checkout -'
 
-# Git update master and rebase the current branch on the newly updated master
-alias gumar='git checkout master && git fetch upstream && git merge upstream/master --ff-only && git checkout - && git rebase master'
-
-# Git update dev
-alias gud='git checkout dev && git fetch upstream && git merge upstream/dev --ff-only && git checkout -'
-
-# Git update dev and rebase the current branch on the newly updated master
-alias gudar='git checkout dev && git fetch upstream && git merge upstream/dev --ff-only && git checkout - && git rebase dev'
+# Git update current branch with the latest changes from master
+alias gub='gum && git merge master'
 
 # Git checkout
 alias gco='git checkout'
@@ -169,18 +166,8 @@ alias gr='git remote'
 alias gp='git push'
 __git_complete gp _git_push
 
-# Git push current branch to fork
-alias gpf='git push fork $(git rev-parse --abbrev-ref HEAD)'
-
-# Git push current branch to fork
-alias gub='git_update_branch'
-
-git_update_branch () {
-  git fetch upstream
-  CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-  git merge upstream/$CURRENT_BRANCH --ff-only
-  echo "$CURRENT_BRANCH is now up to date"
-}
+# Git push local changes to upstream version of the branch
+alias gpo='git pull && git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 alias gf='git fetch'
 __git_complete gf _git_fetch
@@ -201,7 +188,3 @@ alias gaa='git add --all'
 
 # Amend the previous commit without changing the commit message or verifying it with precommit hooks
 alias gcma='git commit --amend --no-verify --no-edit'
-
-alias gaacpf='gaa && git commit -m "fix(stuff): fixed stuff" && gpf'
-
-alias clean-deps='git clean -fdx && \rm -rf bower_components && bower cache clean && bower install && yarn install --ignore-engines'
