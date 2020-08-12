@@ -167,7 +167,7 @@ alias gp='git push'
 __git_complete gp _git_push
 
 # Git push local changes to upstream version of the branch
-alias gpo='git pull && git push origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpo='git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 alias gf='git fetch'
 __git_complete gf _git_fetch
